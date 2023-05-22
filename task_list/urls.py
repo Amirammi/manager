@@ -16,11 +16,20 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import index, TagListView
+from .views import (
+    index,
+    TagListView,
+    TaskCreate,
+    TaskUpdate,
+    TaskDelete
+)
 
 urlpatterns = [
     path("", index, name="index"),
     path("tags/", TagListView.as_view(), name="tag-list"),
+    path("tasks/create/", TaskCreate.as_view(), name="task-create"),
+    path("tasks/<int:pk>/update/", TaskUpdate.as_view(), name="task-update"),
+    path("tasks/<int:pk>/delete/", TaskDelete.as_view(), name="task-delete"),
 ]
 
 app_name = "task_list"
