@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    Task Manager
+  </title>
+  {% load static %}
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      {% block sidebar %}{% endblock sidebar %}
+    </div>
+    <div class="col-sm-9">
+      {% block content %}{% endblock content %}
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
