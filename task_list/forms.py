@@ -25,3 +25,15 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = "__all__"
+
+
+class TagForm(forms.ModelForm):
+    name = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "Name*",
+                                      "style": "padding: 10px"}),
+        label=""
+    )
+
+    class Meta:
+        model = Tag
+        fields = "__all__"
