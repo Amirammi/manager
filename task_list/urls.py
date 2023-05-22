@@ -19,7 +19,7 @@ from django.urls import path
 from .views import index
 
 urlpatterns = [
-    path("", index, namespace="task_list"),
+    path("", index, name="index"),
 ]
 
 app_name = "task_list"
