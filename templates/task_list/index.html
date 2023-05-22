@@ -9,13 +9,23 @@
   {% for task in tasks %}
     <div style="width: 750px" class="card mb-4">
       <div class="card-header mb-0">
-        <h5 class="d-flex">{{ task.content }}
-        {% if not task.is_completed %}
-          <span class="badge bg-danger mx-4">Not done</span>
-        {% else %}
-          <span class="badge bg-success mx-4">Done</span>
-        {% endif %}
+        <div class="row">
+          <h5 class="d-flex">{{ task.content }}
+          {% if not task.is_completed %}
+            <span class="badge bg-danger mx-4">Not done</span>
+          {% else %}
+            <span class="badge bg-success mx-4">Done</span>
+          {% endif %}
           </h5>
+          <div class="text-right mt-n5">
+            {% if task.is_completed %}
+              <a class="btn bg-gradient-light" href="{% url 'task_list:task-toggle' pk=task.id %}">Undo</a>
+            {% else %}
+              <a class="btn bg-gradient-success" href="{% url 'task_list:task-toggle' pk=task.id %}">Complete</a>
+            {% endif %}
+          </div>
+        </div>
+
       </div>
       <div class="card-body mt-n4">
         <p class="text-xs">Created: {{ task.datetime }}</p>
