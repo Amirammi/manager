@@ -16,10 +16,7 @@ def index(request):
 
 def toggle_complete_task(request, pk):
     task = Task.objects.get(pk=pk)
-    if task.is_completed:
-        task.is_completed = False
-    else:
-        task.is_completed = True
+    task.is_completed = not task.is_completed
     task.save()
     return HttpResponseRedirect(reverse_lazy(
         "tasks:index"
