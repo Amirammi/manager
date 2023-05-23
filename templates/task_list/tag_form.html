@@ -8,7 +8,7 @@
       {% csrf_token %}
       {{ form|crispy }}
       <input type="submit" value="Submit" class="btn bg-gradient-success mt-3">
-      <a class="btn bg-gradient-secondary mt-3" href="{% url 'task_list:tag-list' %}">Cancel</a>
+      <a class="btn bg-gradient-secondary mt-3" href="{% url 'tasks:tag-list' %}">Cancel</a>
     </form>
   </div>
 {% endblock %}

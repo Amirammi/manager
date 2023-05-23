@@ -5,7 +5,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("task_list", "0002_alter_task_deadline"),
+        ("tasks", "0002_alter_task_deadline"),
     ]
 
     operations = [

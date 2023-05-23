@@ -40,4 +40,4 @@ urlpatterns = [
     path("tasks/<int:pk>/toggle", toggle_complete_task, name="task-toggle")
 ]
 
-app_name = "task_list"
+app_name = "tasks"

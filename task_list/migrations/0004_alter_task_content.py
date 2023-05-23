@@ -5,7 +5,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("task_list", "0003_rename_tag_task_tags"),
+        ("tasks", "0003_rename_tag_task_tags"),
     ]
 
     operations = [

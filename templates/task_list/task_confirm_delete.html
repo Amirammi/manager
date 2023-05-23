@@ -10,7 +10,7 @@
         <form action="" method="post">
           {% csrf_token %}
           <input type="submit" value="Confirm" class="btn bg-gradient-success mx-auto">
-          <a class="btn bg-gradient-danger mx-4" href="{% url 'task_list:index' %}">Cancel</a>
+          <a class="btn bg-gradient-danger mx-4" href="{% url 'tasks:index' %}">Cancel</a>
         </form>
       </div>
     </div>
