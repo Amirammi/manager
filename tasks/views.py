@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -12,15 +12,6 @@ def index(request):
         "tasks": Task.objects.prefetch_related("tags"),
     }
     return render(request, "tasks/index.html", context=context)
-
-
-def toggle_complete_task(request, pk):
-    task = Task.objects.get(pk=pk)
-    task.is_completed = not task.is_completed
-    task.save()
-    return HttpResponseRedirect(reverse_lazy(
-        "tasks:index"
-    ))
 
 
 class TagListView(generic.ListView):
@@ -54,6 +45,17 @@ class TaskUpdate(generic.UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy("tasks:index")
+
+
+class TaskUpdateCompletionView(generic.UpdateView):
+    model = Task
+    fields = []
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, id=kwargs["pk"])
+        task.is_completed = not task.is_completed
+        task.save()
+        return redirect("tasks:index")
 
 
 class TaskDelete(generic.DeleteView):
