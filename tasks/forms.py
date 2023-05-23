@@ -13,7 +13,7 @@ class TaskForm(forms.ModelForm):
                                       "style": "padding: 10px"}),
         label=""
     )
-    is_completed = forms.BooleanField()
+    is_completed = forms.BooleanField(required=False)
     deadline = forms.DateTimeField(
         widget=DateInput(attrs={"style": "padding: 10px"})
     )
