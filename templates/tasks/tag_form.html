@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2 class="mt-8 mx-6">{{ object|yesno:"Update,Create" }} tag</h2>
+  <div class="card col-md-10">
+    <form class="px-6 py-5" action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit" class="btn bg-gradient-success mt-3">
+      <a class="btn bg-gradient-secondary mt-3" href="{% url 'tasks:tag-list' %}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

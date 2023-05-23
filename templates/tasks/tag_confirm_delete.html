@@ -4,13 +4,13 @@
 {% block content %}
     <div class="card mt-8 col-md-10 px-6 py-8">
       <div class="container">
-        <h2 class="mb-4">Delete <i>"{{ task.content }}" task?</i></h2>
-        <p> Are you sure, you want to delete the team - <i><strong>{{ task.content }}?</strong></i></p>
+        <h2 class="mb-4">Delete <i>"{{ tag.name }}" tag?</i></h2>
+        <p> Are you sure, you want to delete the tag - <i><strong>{{ tag.name }}?</strong></i></p>
         <p class="mb-6"><strong style="color: red">Warning!</strong> You won't be able to restore lost information!</p>
         <form action="" method="post">
           {% csrf_token %}
           <input type="submit" value="Confirm" class="btn bg-gradient-success mx-auto">
-          <a class="btn bg-gradient-danger mx-4" href="{% url 'task_list:index' %}">Cancel</a>
+          <a class="btn bg-gradient-danger mx-4" href="{% url 'tasks:tag-list' %}">Cancel</a>
         </form>
       </div>
     </div>

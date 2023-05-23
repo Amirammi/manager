@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ("is_completed", models.BooleanField()),
                 (
                     "tag",
-                    models.ManyToManyField(related_name="tasks", to="task_list.tag"),
+                    models.ManyToManyField(related_name="tasks", to="tasks.tag"),
                 ),
             ],
         ),
